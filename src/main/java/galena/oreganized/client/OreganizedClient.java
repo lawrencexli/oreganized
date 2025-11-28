@@ -141,10 +141,6 @@ public class OreganizedClient {
         event.registerItem(new ElectrumArmorClientExtensions(), OItems.ELECTRUM_HELMET, OItems.ELECTRUM_CHESTPLATE, OItems.ELECTRUM_LEGGINGS, OItems.ELECTRUM_BOOTS);
     }
 
-    public static void handleParticlePacket(Player player, BlockPos pos, Boolean tarnished) {
-
-    }
-
     @EventBusSubscriber(modid = Oreganized.MOD_ID, value = Dist.CLIENT)
     public static class ForgeBusEvents {
 
@@ -163,6 +159,7 @@ public class OreganizedClient {
         @SubscribeEvent
         public static void renderHand(RenderHandEvent event) {
             var player = Minecraft.getInstance().player;
+            //TODO: might want to use attachments here instead
             if (!(player instanceof IDoorProgressHolder progressHolder)) return;
             var progress = progressHolder.oreganised$getOpeningProgress();
             if (progress == 0) return;
@@ -172,6 +169,7 @@ public class OreganizedClient {
 
             poseStack.pushPose();
 
+            //TODO: also would be nice if the hand was slightly animate to indicate opening progress
             var rightArm = player.getMainArm() == HumanoidArm.RIGHT;
             float factor = rightArm ? 1.0F : -1.0F;
             poseStack.translate(factor * 0.84000005F, -0.4F, -0.4F);

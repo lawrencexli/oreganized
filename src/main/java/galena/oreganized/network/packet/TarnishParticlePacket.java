@@ -2,11 +2,15 @@ package galena.oreganized.network.packet;
 
 import galena.oreganized.Oreganized;
 import galena.oreganized.client.OreganizedClient;
+import galena.oreganized.index.OParticleTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.util.ParticleUtils;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
 public record TarnishParticlePacket(BlockPos pos, Boolean tarnished) implements CustomPacketPayload {
@@ -22,7 +26,9 @@ public record TarnishParticlePacket(BlockPos pos, Boolean tarnished) implements 
 
     public void handle(IPayloadContext context) {
         context.enqueueWork(() -> {
-            OreganizedClient.handleParticlePacket(context.player(), pos, tarnished);
+            var level = context.player().level();
+            ParticleUtils.spawnParticlesOnBlockFaces(level, pos,
+                    OParticleTypes.TARNISH.get(), UniformInt.of(5,7));
         });
     }
 
