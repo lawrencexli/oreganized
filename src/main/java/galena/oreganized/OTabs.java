@@ -3,7 +3,6 @@ package galena.oreganized;
 import static galena.oreganized.ModCompat.FARMERS_DELIGHT_ID;
 import static galena.oreganized.ModCompat.NETHERS_DELIGHT_ID;
 
-import galena.oreganized.content.block.TarnishManager;
 import galena.oreganized.index.DyeColors;
 import galena.oreganized.index.OBlocks;
 import galena.oreganized.index.OItems;
@@ -57,7 +56,7 @@ public class OTabs {
             putBefore(event, Items.GOLD_BLOCK, OBlocks.SILVER_BLOCKS.array());
             putBefore(event, Items.GOLD_BLOCK, OBlocks.CUT_SILVERS.array());
             putBefore(event, Items.GOLD_BLOCK, OBlocks.SILVER_PILLARS.array());
-            putBefore(event, Items.GOLD_BLOCK, OBlocks.SILVER_LATTICES.array());
+            putBefore(event, Items.GOLD_BLOCK, OBlocks.SILVER_BARS.array());
             putBefore(event, Items.NETHERITE_BLOCK, OBlocks.ELECTRUM_BLOCK);
             putAfter(event, Items.WAXED_OXIDIZED_CUT_COPPER_SLAB, OBlocks.LEAD_BLOCK);
             putAfter(event, OBlocks.LEAD_BLOCK.get(), OBlocks.CUT_LEAD);
