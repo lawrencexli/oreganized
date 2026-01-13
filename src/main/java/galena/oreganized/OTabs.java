@@ -6,10 +6,8 @@ import static galena.oreganized.ModCompat.NETHERS_DELIGHT_ID;
 import galena.oreganized.index.DyeColors;
 import galena.oreganized.index.OBlocks;
 import galena.oreganized.index.OItems;
-
 import java.util.Map;
 import java.util.function.Supplier;
-
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
